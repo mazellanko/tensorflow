@@ -1,0 +1,24 @@
+import tensorflow as tf
+import pandas as pd
+
+irisfile = '/content/drive/My Drive/iris.csv'
+iris = pd.read_csv(irisfile)
+iris.head()
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+sns.pairplot(iris, hue='Class');
+plt.show()
+
+iris = pd.get_dummies(iris)
+iris.head()
+
+indep = iris[['Sepal_Length', 'Sepal_Width', 'Petal_Length', 'Petal_Width']]
+depen = iris[['Class_setosa', 'Class_versicolor', 'Class_virginica']]
+print(indep.shape, depen.shape)
+
+model.fit(indep, depen, epochs=1000, verbose=0)
+model.fit(indep, depen, epochs=10)
+
+print(model.predict(indep[45:55]))
+print(depen[45:55])
