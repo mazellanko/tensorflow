@@ -20,7 +20,7 @@ indep = dataset[:,0:60].astype(float)
 depen_obj = dataset[:,60]
 
 e = LabelEncoder()
-e.fit(Y_obj)
+e.fit(depen_obj)
 depen = e.transform(depen_obj)
 
 model = Sequential()
